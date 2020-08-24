@@ -1,0 +1,129 @@
+.card {
+  position: relative;
+  width: 320px;
+  min-height: 480px;
+  padding: 20px 50px;
+  color: #b3b3b3;
+  background-image: url("../img/back-disabled.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  outline: none;
+
+  &--active {
+    color: black;
+    background-image: url("../img/back-default.png");
+    cursor: pointer;
+
+    .card__type,
+    .card__option {
+      color: #666666;
+    }
+
+    .card__weight {
+      background-color: #1698d9;
+    }
+
+    &:hover {
+      background-image: url("../img/back-default-hover.png");
+
+      .card__weight {
+        background-color: #2ea8e5;
+      }
+    }
+  }
+
+  &--selected,
+  &--selected:hover {
+    background-image: url("../img/back-selected.png");
+
+    .card__weight {
+      background-color: #d91667;
+    }
+  }
+}
+
+.card__type {
+  margin: 5px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+
+.card__title {
+  margin: 5px 0;
+  font-size: 48px;
+  line-height: 50px;
+  font-weight: 700;
+}
+
+.card__subtitle {
+  margin: 0 0 5px;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.card__option-list {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.card__option {
+  font-size: 14px;
+  line-height: 16px;
+  color: #b3b3b3;
+
+  span {
+    font-weight: 700;
+  }
+}
+
+.card__weight {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  bottom: 10px;
+  right: 10px;
+  width: 82px;
+  height: 82px;
+  padding-top: 10px;
+  background-color: #b3b3b3;
+  color: white;
+  font-size: 21px;
+  line-height: 22px;
+  border-radius: 50%;
+
+  span {
+    margin-bottom: 10px;
+    font-size: 42px;
+  }
+}
+
+.card__description {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 13px;
+  line-height: 16px;
+
+  a {
+    border-bottom: 0.5px #1698d9 dashed;
+    color: #1698d9;
+  }
+}
+
+.card__target {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
