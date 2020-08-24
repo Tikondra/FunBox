@@ -25,7 +25,7 @@ const getDescription = (isSelected, isAvailable, description, type, onSelected) 
     return <p>{description}</p>
   }
 
-  return <p>Чего сидишь? Порадуй котэ, <a onClick={onSelected}>купи.</a></p>;
+  return <p>Чего сидишь? Порадуй котэ, <a href="" onClick={onSelected}>купи.</a></p>;
 };
 
 const Card = ({card: {typeCard, title, type, description, weight, count, bonusMouse, isAvailable, bonus}}) => {
@@ -34,7 +34,10 @@ const Card = ({card: {typeCard, title, type, description, weight, count, bonusMo
   const [isFirstHover, setIsFirstHover] = useState(true);
   const disabledClass = isAvailable ? ` card--active` : ``;
   const selectedClass = selected ? ` card--selected` : ``;
-  const onSelected = () => {
+  const hoverClass = isHover ? ' card--selected-hover' : ``;
+  const onSelected = (evt) => {
+    evt.preventDefault();
+
     if (isAvailable && selected) {
       setSelected(false);
       setIsFirstHover(true);
@@ -57,7 +60,7 @@ const Card = ({card: {typeCard, title, type, description, weight, count, bonusMo
   };
 
   return (
-    <li className={`catalog__item card${disabledClass}${selectedClass}`}>
+    <li className={`catalog__item card${disabledClass}${selectedClass}${hoverClass}`}>
       <p className="card__type">{selected && isHover ? `котэ не одобряет?` : typeCard}</p>
       <h2 className="card__title">{title}</h2>
       <p className="card__subtitle">{type}</p>
